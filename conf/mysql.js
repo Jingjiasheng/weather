@@ -1,5 +1,7 @@
+///mysql的配置文件///
 var db    = {};
 var mysql = require('mysql');
+///配置连接池///
 var pool  = mysql.createPool({
   connectionLimit : 10,
   host            : 'localhost',
@@ -9,7 +11,6 @@ var pool  = mysql.createPool({
 });
  
 db.query = function(sql, callback){
- 
 	if (!sql) {
 		callback();
 		return;
@@ -20,7 +21,6 @@ db.query = function(sql, callback){
 	    callback(err, null);
 	    return;
 	  };
- 
 	  callback(null, rows, fields);
 	});
 }

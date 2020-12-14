@@ -4,7 +4,7 @@ const fs=require('fs');
 
 /// 天气页面路由 ///
 
-// GET 获取天气主页
+//GET 获取天气主页
 router.get('/', function(req,res){
 	fs.readFile('./views/index.html',function(err, data){
         if(!err){
@@ -16,7 +16,7 @@ router.get('/', function(req,res){
     });
 });
 
-// GET 获取天气主页
+//GET 获取Sydney城市页面
 router.get('/Sydney',function(req,res){
 	fs.readFile('./views/Sydney.html',function(err, data){
         if(!err){
@@ -28,7 +28,7 @@ router.get('/Sydney',function(req,res){
     });
 });
 
-// GET 获取天气主页
+//GET 获取Melbourne城市页面
 router.get('/Melbourne',function(req,res){
 	fs.readFile('./views/Melbourne.html',function(err, data){
         if(!err){
@@ -40,7 +40,7 @@ router.get('/Melbourne',function(req,res){
     });
 });
 
-// GET 获取天气主页
+//GET 获取Brisbane城市页面
 router.get('/Brisbane',function(req,res){
 	fs.readFile('./views/Brisbane.html',function(err, data){
         if(!err){

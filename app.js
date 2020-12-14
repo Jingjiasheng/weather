@@ -7,17 +7,14 @@ const fs=require('fs');
 //定义项目路径
 const path=require('path');
 
+
 //导入主页相关的路由
 const infoRouter=require('./routes/infoRouter');
 
 //导入天气相关的路由
 const weatherRouter=require('./routes/weatherRouter');
-/**
- * 初始化框架,并将初始化后的函数给予 '当前页面'全局变量 app
- * 也就是说, app 是 express 
- */
+//将路径与路由进行匹配
 var app = express();
-
 app.use('/get',infoRouter);
 app.use('/weather',weatherRouter);
 
@@ -26,7 +23,7 @@ app.use('/weather',weatherRouter);
 app.use(express.static(path.join(__dirname,'./public')))
 
 
-/* 配置框架环境 E */
+//设置首页访问页面
 app.get('/', function(req, res) {
     fs.readFile('./views/index.html',function(err, data){
         if(!err){
@@ -39,11 +36,10 @@ app.get('/', function(req, res) {
 })
 
 
+//设置端口监听
 var server = app.listen(8081, function() {
-
     var host = server.address().address
     var port = server.address().port
-    
     console.log("Node.JS 服务器已启动，访问地址： http://%s:%s", host, port)
 
 })
