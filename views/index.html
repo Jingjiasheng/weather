@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Node.js-ApiDemo</title>
+</head>
+<style type="text/css">
+	html,body{
+		padding: 0;
+		background-color: black;
+		background-image: url("http://p9.qhimg.com/bdr/__85/t019285e82f5fbfe323.jpg");
+		height: 100%;
+		width: 100%;
+		display: flex; 
+		align-items: center; 
+		justify-content: center;
+		background-size: 100% 100%;
+	}
+	#te{
+		width: 100%;
+		opacity: 0.7;
+		border: #F0F8FF solid 0.0625rem;
+		color: aliceblue;
+		background-color: black;
+		margin: auto;
+		font-size: 2.5rem;
+		text-align: center;
+		
+	}
+	a{text-decoration:none}
+</style>
+<body>
+	<a id="te" href="./weather/Sydney">start-app</a>
+</body>
+<script type="text/jscript">
+	function success(){
+	    var http= new XMLHttpRequest();
+	    http.onreadystatechange= function(){
+	        if(http.status == 200 && http.readyState == 4){
+	            var msg= '{'+http.responseText+'}';
+	            var minimum_temperature= document.getElementById('minimum_temperature');
+	            var average_temperature= document.getElementById('average_temperature');
+	            var maximum_temperature= document.getElementById('maximum_temperature');
+	            var weather= document.getElementById('weather');
+				var msgs= document.getElementById('msgs');
+				msg.innerHTML= msgs;
+	            box.innerHTML= msg;
+	             // box.innerHTML= JSON.parse(msg).id;
+	        }
+	    }
+	    //发送请求
+	    http.open('GET', '/Melbourne');
+	    http.send();
+	}
+</script>
+</html>
