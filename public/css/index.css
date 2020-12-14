@@ -1,0 +1,25 @@
+	html,body{
+		padding: 0;
+		background-color: black;
+		background-image: url("../images/index-bg.jpg");
+		height: 100%;
+		width: 100%;
+		display: flex; 
+		align-items: center; 
+		justify-content: center;
+		background-size: 100% 100%;
+	}
+	#te{
+		width: 100%;
+		opacity: 0.7;
+		border: #F0F8FF solid 0.0625rem;
+		color: dodgerblue;
+		background: rgba(255, 255, 255, 0.5);
+		margin: auto;
+		font-size: 2.5rem;
+		text-align: center;
+		border-radius: 0.625rem;
+	}
+	a{
+		text-decoration:none
+	}

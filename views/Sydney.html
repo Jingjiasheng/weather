@@ -3,109 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Node.js-ApiDemo</title>
+	<link rel="stylesheet" type="text/css" href="../css/item.css">
 </head>
-<style type="text/css">
-	html,body{
-		background-color: black;
-		background-image: url("http://p5.qhimg.com/bdm/1280_791_0/t019c07f61e041661b7.jpg");
-		padding: 0;
-		height: 100%;
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background-size: 100% 100%;
-	}
-	#page{
-		width: 100%;
-		height: 12.5rem;
-		background: rgba(0, 85, 255, 0.5);
-		opacity: 0.9;
-		display: block;
-		float: left;
-		padding: 0rem;
-		margin: 0rem;
-		background-size: 100% 800%;
-	}
-	#img1{
-		display: block;
-		float: left;
-		width: 20%;
-		margin-left: 2%;
-		height: 100%;
-		/* background-color: aqua; */
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	#img2{
-		/* display: block; */
-		float: left;
-		width: 50%;
-		margin-left: 2%;
-		height: 100%;
-		/* display: flex; */
-		/* align-items: center;
-		justify-content: center; */
-	}
-	#msgs{
-		display: block;
-		width: 100%;
-		color: white;
-		text-align: center;
-		font-size: 1.875rem;
-	}
-	#load{
-		display: block;
-		margin: auto;
-	}
-	#average_temperature{
-		display: block;
-		width: 100%;
-		color: white;
-		text-align: center;
-		font-family: "黑体";
-	}
-	#minimum_temperature{
-		display: block;
-		float: left;
-		width: 50%;
-		text-align: center;
-		font-family: "黑体";
-		color: white;
-	}
-	#maximum_temperature{
-		display: block;
-		float: left;
-		width: 50%;
-		text-align: center;
-		font-family: "黑体";
-		color: white;
-	}
-	#weather{
-		display: block;
-		width: 100%;
-		text-align: center;
-		font-size: 1.25rem;
-		color: white;
-		font-family: "黑体";
-	}
-</style>
 <body>
     <div id="page">
 		<div id="img1" style="transform: rotateY(180deg);" onclick="window.location.href='./Brisbane';">
-			<img src="https://i.52112.com/icon/256/20150112/543/43530.png" width="20%" />
+			<img src="../images/right.png" width="20%" />
 		</div>
 		<div id="img2">
 			<span id="msgs" style="width: 100%;">Sydney</span>
-			<img id="load" src="http://www.shejiye.com/uploadfile/icon/2017/0203/shejiyeiconfz0xcerbkox.png" width="100px" height="100px" onclick="success();"/>
+			<img id="load" src="../images/load.png" width="100px" height="100px" onclick="success();"/>
 			 <span id="average_temperature" >平均温度</span>
 			<span id="minimum_temperature" >最低温度</span>
 			<span id="maximum_temperature" >最高温度</span>
 			<span id="weather" >天气状况</span>
 		</div>
 		<div id="img1" onclick="window.location.href='./Melbourne';">
-			<img src="https://i.52112.com/icon/256/20150112/543/43530.png" width="20%"/>
+			<img src="../images/right.png" width="20%"/>
 		</div>
 	</div>
     <!-- <img onclick="success()" src="/images"> -->
@@ -119,15 +33,15 @@
                 var average_temperature= document.getElementById('average_temperature');
                 var maximum_temperature= document.getElementById('maximum_temperature');
                 var weather= document.getElementById('weather');
-	var msgs= document.getElementById('msgs');
-	var load= document.getElementById('load');
-	load.setAttribute("src",JSON.parse(msg).weather_ico);
+				var msgs= document.getElementById('msgs');
+				var load= document.getElementById('load');
+				load.setAttribute("src",JSON.parse(msg).weather_ico);
                 minimum_temperature.innerHTML= JSON.parse(msg).minimum_temperature;
-	average_temperature.innerHTML= JSON.parse(msg).average_temperature;
-	maximum_temperature.innerHTML= JSON.parse(msg).maximum_temperature;
-	weather.innerHTML= JSON.parse(msg).weather;
-	msgs.innerHTML= JSON.parse(msg).address;
-	console.log(msg)
+				average_temperature.innerHTML= JSON.parse(msg).average_temperature;
+				maximum_temperature.innerHTML= JSON.parse(msg).maximum_temperature;
+				weather.innerHTML= JSON.parse(msg).weather;
+				msgs.innerHTML= JSON.parse(msg).address;
+				console.log(msg)
             }
         }
         //发送请求

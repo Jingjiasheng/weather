@@ -3,7 +3,6 @@ const router = express.Router();
 const db = require('../conf/mysql.js');
 
 
-
 // 获取天气信息路由 ///
 
 // GET 获取Sydney天气信息
@@ -71,7 +70,5 @@ router.get('/Brisbane', (req,res)=>{
     console.log(rows[0]);
 	});
 });
-
-/// 天气副本、天气种类、作者的路由与天气路由结构基本一致，只是无需获取主页 ///
 
 module.exports = router;
