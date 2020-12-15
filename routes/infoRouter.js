@@ -11,19 +11,19 @@ const baseSql = 'select * from weather where id='
 
 // GET 获取Sydney天气信息
 router.get('/Sydney', (req, res) => {
-    dbUtil.getWeather(baseSql, '1', res);
+    dbUtil.getWeather(baseSql, req.query.id, res);
 });
 
 
 // GET 获取Melbourne天气信息
 router.get('/Melbourne', (req, res) => {
-    dbUtil.getWeather(baseSql, 2, res);
+    dbUtil.getWeather(baseSql, req.query.id, res);
 });
 
 
 // GET 获取Brisbane天气信息
 router.get('/Brisbane', (req, res) => {
-    dbUtil.getWeather(baseSql, '3', res);
+    dbUtil.getWeather(baseSql, req.query.id, res);
 });
 
 module.exports = router;

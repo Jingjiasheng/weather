@@ -17,8 +17,14 @@ const app = express();
 
 // 设置 public 为静态文件的存放文件夹
 app.use(express.static(path.join(__dirname, './public')))
-// 设置首页访问页面
 
+app.use('/',(req,res,next)=>{
+    console.log('执行请求地址：'+req.url);
+    next()
+})
+
+
+// 设置首页访问页面
 app.get('/', function(req, res) {
     loadhtml.loadhtml('./views/index.html', res);
 })
@@ -32,5 +38,4 @@ var server = app.listen(8081, function() {
     var host = server.address().address
     var port = server.address().port
     console.log("Node.JS 服务器已启动，访问地址： http://%s:%s", host, port)
-
 })
