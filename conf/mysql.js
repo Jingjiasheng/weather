@@ -5,10 +5,10 @@ const mysql = require('mysql');
 ///配置连接池///
 var pool = mysql.createPool({
     connectionLimit: 10,
-    host: 'localhost',
+    host: '42.192.84.4',
     user: 'root',
     password: '123456',
-    database: 'nodetest'
+    database: 'weather_info'
 });
 
 db.query = function(sql, callback) {
