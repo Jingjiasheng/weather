@@ -1,55 +1,28 @@
 const express = require('express');
 const router = express.Router();
-const fs=require('fs');
+const fs = require('fs');
+const loadhtml = require('../conf/loadhtml')
 
 /// 天气页面路由 ///
 
 //GET 获取天气主页
-router.get('/', function(req,res){
-	fs.readFile('./views/index.html',function(err, data){
-        if(!err){
-            res.writeHead(200, {"Content-Type": "text/html;charset=UTF-8"});
-            res.end(data);
-        }else{
-            throw err;
-        }
-    });
+router.get('/', function(req, res) {
+    loadhtml.loadhtml('./views/Sydney.html', res);
 });
 
 //GET 获取Sydney城市页面
-router.get('/Sydney',function(req,res){
-	fs.readFile('./views/Sydney.html',function(err, data){
-        if(!err){
-            res.writeHead(200, {"Content-Type": "text/html;charset=UTF-8"});
-            res.end(data);
-        }else{
-            throw err;
-        }
-    });
+router.get('/Sydney', function(req, res) {
+    loadhtml.loadhtml('./views/Sydney.html', res);
 });
 
 //GET 获取Melbourne城市页面
-router.get('/Melbourne',function(req,res){
-	fs.readFile('./views/Melbourne.html',function(err, data){
-        if(!err){
-            res.writeHead(200, {"Content-Type": "text/html;charset=UTF-8"});
-            res.end(data);
-        }else{
-            throw err;
-        }
-    });
+router.get('/Melbourne', function(req, res) {
+    loadhtml.loadhtml('./views/Melbourne.html', res);
 });
 
 //GET 获取Brisbane城市页面
-router.get('/Brisbane',function(req,res){
-	fs.readFile('./views/Brisbane.html',function(err, data){
-        if(!err){
-            res.writeHead(200, {"Content-Type": "text/html;charset=UTF-8"});
-            res.end(data);
-        }else{
-            throw err;
-        }
-    });
+router.get('/Brisbane', function(req, res) {
+    loadhtml.loadhtml('./views/Brisbane.html', res);
 });
 
 module.exports = router;

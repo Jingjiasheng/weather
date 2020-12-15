@@ -1,49 +1,51 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Brisbane</title>
 </head>
 <link rel="stylesheet" type="text/css" href="../css/item.css">
+
 <body>
     <div id="page">
-		<a href="">
-		<div id="img1" style="transform: rotateY(180deg);" onclick="window.location.href='./Melbourne';">
-		</a>
-			<img  src="../images/right.png" width="20%" />
-		</div>
-		<div id="img2">
-			<span id="msgs" >Brisbane</span>
-			<img id="load" src="../images/load.png" width="100px" height="100px" onclick="success();"/>
-			<span id="average_temperature" >平均温度</span>
-			<span id="minimum_temperature" >最低温度</span>
-			<span id="maximum_temperature" >最高温度</span>
-			<span id="weather" >天气状况</span>
-		</div>
-		<div id="img1" onclick="window.location.href='./Sydney';">
-			<img src="../images/right.png" width="20%"/>
-		</div>
-	</div>
+        <a href="">
+            <div id="img1" style="transform: rotateY(180deg);" onclick="window.location.href='./Melbourne';">
+        </a>
+        <img src="../images/right.png" width="20%" />
+    </div>
+    <div id="img2">
+        <span id="msgs">Brisbane</span>
+        <img id="load" src="../images/load.png" width="100px" height="100px" onclick="success();" />
+        <span id="average_temperature">平均温度</span>
+        <span id="minimum_temperature">最低温度</span>
+        <span id="maximum_temperature">最高温度</span>
+        <span id="weather">天气状况</span>
+    </div>
+    <div id="img1" onclick="window.location.href='./Sydney';">
+        <img src="../images/right.png" width="20%" />
+    </div>
+    </div>
     <!-- <img onclick="success()" src="/images"> -->
     <script>
-    function success(){
-        var http= new XMLHttpRequest();
-        http.onreadystatechange= function(){
-            if(http.status == 200 && http.readyState == 4){
-                var msg= '{'+http.responseText+'}';
-                var minimum_temperature= document.getElementById('minimum_temperature');
-                var average_temperature= document.getElementById('average_temperature');
-                var maximum_temperature= document.getElementById('maximum_temperature');
-                var weather= document.getElementById('weather');
-				var msgs= document.getElementById('msgs');
-				var load= document.getElementById('load');
-				load.setAttribute("src",JSON.parse(msg).weather_ico);
-                minimum_temperature.innerHTML= JSON.parse(msg).minimum_temperature;
-				average_temperature.innerHTML= JSON.parse(msg).average_temperature;
-				maximum_temperature.innerHTML= JSON.parse(msg).maximum_temperature;
-				weather.innerHTML= JSON.parse(msg).weather;
-				msgs.innerHTML= JSON.parse(msg).address;
-				console.log(msg)
+    function success() {
+        var http = new XMLHttpRequest();
+        http.onreadystatechange = function() {
+            if (http.status == 200 && http.readyState == 4) {
+                var msg = '{' + http.responseText + '}';
+                var minimum_temperature = document.getElementById('minimum_temperature');
+                var average_temperature = document.getElementById('average_temperature');
+                var maximum_temperature = document.getElementById('maximum_temperature');
+                var weather = document.getElementById('weather');
+                var msgs = document.getElementById('msgs');
+                var load = document.getElementById('load');
+                load.setAttribute("src", JSON.parse(msg).weather_ico);
+                minimum_temperature.innerHTML = JSON.parse(msg).minimum_temperature;
+                average_temperature.innerHTML = JSON.parse(msg).average_temperature;
+                maximum_temperature.innerHTML = JSON.parse(msg).maximum_temperature;
+                weather.innerHTML = JSON.parse(msg).weather;
+                msgs.innerHTML = JSON.parse(msg).address;
+                console.log(msg)
             }
         }
         //发送请求
@@ -52,4 +54,5 @@
     }
     </script>
 </body>
+
 </html>
